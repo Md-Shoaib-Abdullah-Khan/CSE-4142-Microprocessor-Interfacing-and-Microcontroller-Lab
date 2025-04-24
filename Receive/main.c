@@ -31,7 +31,7 @@ int main(void)
 		
 	
 		// Setup the baude rate for 9600 bps
-    uint32_t system_clock = 36000000; // 16 MHz (HSI)
+    uint32_t system_clock = 36000000; 
     uint32_t baud_rate = 9600;
     USART2->BRR = (system_clock + (baud_rate / 2)) / baud_rate; // Correct BRR calculation
 		
@@ -102,25 +102,25 @@ void LCD_EnablePulse(void) {
 
 // LCD display initialization function 
 void init() {
-    GPIOA->ODR = 0x08<<2;
+    GPIOA->ODR = 0x02<<4;
     LCD_EnablePulse();
     
-    GPIOA->ODR = 0x00<<2;
+    GPIOA->ODR = 0x00<<4;
     LCD_EnablePulse();
     
-    GPIOA->ODR = 0x04<<2;
+    GPIOA->ODR = 0x01<<4;
     LCD_EnablePulse();
     
-    GPIOA->ODR = 0x00<<2;
+    GPIOA->ODR = 0x00<<4;
     LCD_EnablePulse();
     
-    GPIOA->ODR = 0x08<<2;
+    GPIOA->ODR = 0x02<<4;
     LCD_EnablePulse();
     
-    GPIOA->ODR = 0x00<<2;
+    GPIOA->ODR = 0x00<<4;
     LCD_EnablePulse();
     
-    GPIOA->ODR = 0x30<<2;
+    GPIOA->ODR = 0x0C<<4;
     LCD_EnablePulse();
     
    

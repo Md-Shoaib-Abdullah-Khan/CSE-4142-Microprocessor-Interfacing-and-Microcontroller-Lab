@@ -3,7 +3,7 @@
 
 int main(void)
 {
-	// Enable the Alternate Function for PINs
+	// Enable the Alternate Function for PINs and enable GPIO A
 	RCC->APB2ENR |= 5;
 
 	// Enable UART2 clock
@@ -17,7 +17,7 @@ int main(void)
 		GPIOA->CRL |= (0x8000);
 	
 	// Setup the baude rate for 9600 bps
-    uint32_t system_clock = 36000000; // 16 MHz (HSI)
+    uint32_t system_clock = 36000000; 
     uint32_t baud_rate = 9600;
     USART2->BRR = (system_clock + (baud_rate / 2)) / baud_rate; // Correct BRR calculation
 	
@@ -35,7 +35,7 @@ int main(void)
 
 while(1){
 	
-		char chat = 'A';
+		char chat = 'Z';
 		
 	// wait until data transmission is complete
 		while(!(USART2->SR & (1<<6)))
